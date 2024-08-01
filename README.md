@@ -1,2 +1,0 @@
-# WT-Practical
-ALL PRACTICAL
