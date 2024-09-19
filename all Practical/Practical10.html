@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Parallax Scrolling</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .parallax {
+            height: 100vh;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .section-1 {
+            background-image: url('https://via.placeholder.com/1500x1000?text=Background+1');
+        }
+
+        .section-2 {
+            background-image: url('https://via.placeholder.com/1500x1000?text=Background+2');
+        }
+
+        .section-3 {
+            background-image: url('https://via.placeholder.com/1500x1000?text=Background+3');
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax section-1">
+        <div class="content">Section 1</div>
+    </div>
+
+    <div class="content">Section 2</div>
+
+    <div class="parallax section-2">
+        <div class="content">Section 3</div>
+    </div>
+
+    <div class="content">Section 4</div>
+
+    <div class="parallax section-3">
+        <div class="content">Section 5</div>
+    </div>
+
+    <div class="content">Section 6</div>
+</body>
+</html>

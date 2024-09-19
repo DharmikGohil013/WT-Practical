@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .answers {
+            margin-left: 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Quiz</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. What is the capital of France?</p>
+            <div class="answers">
+                <input type="radio" name="q1" value="A" id="q1A">
+                <label for="q1A">A. Berlin</label><br>
+                <input type="radio" name="q1" value="B" id="q1B">
+                <label for="q1B">B. Madrid</label><br>
+                <input type="radio" name="q1" value="C" id="q1C">
+                <label for="q1C">C. Paris</label><br>
+                <input type="radio" name="q1" value="D" id="q1D">
+                <label for="q1D">D. Rome</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. What is the largest planet in our solar system?</p>
+            <div class="answers">
+                <input type="radio" name="q2" value="A" id="q2A">
+                <label for="q2A">A. Earth</label><br>
+                <input type="radio" name="q2" value="B" id="q2B">
+                <label for="q2B">B. Jupiter</label><br>
+                <input type="radio" name="q2" value="C" id="q2C">
+                <label for="q2C">C. Mars</label><br>
+                <input type="radio" name="q2" value="D" id="q2D">
+                <label for="q2D">D. Neptune</label>
+            </div>
+        </div>
+
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
