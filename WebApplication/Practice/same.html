@@ -27,6 +27,57 @@
             <!-- Student rows will be added dynamically here -->
         </tbody>
     </table>
-    <script src="script.js"></script>
+   <script>
+    // Array to store student data
+let students = [];
+
+// Select form and table body elements
+const studentForm = document.getElementById("studentForm");
+const studentTable = document.querySelector("#studentTable tbody");
+
+// Add event listener for form submission
+studentForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Get input values
+    const name = document.getElementById("name").value.trim();
+    const age = parseInt(document.getElementById("age").value);
+    const grade = document.getElementById("grade").value.trim();
+
+    // Add student to the array
+    const newStudent = { name, age, grade };
+    students.push(newStudent);
+
+    // Update the table
+    updateTable();
+
+    // Clear the form
+    studentForm.reset();
+});
+
+// Function to update the table
+function updateTable() {
+    studentTable.innerHTML = ""; // Clear the table body
+    students.forEach((student, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${student.name}</td>
+            <td>${student.age}</td>
+            <td>${student.grade}</td>
+            <td>
+                <button onclick="deleteStudent(${index})">Delete</button>
+            </td>
+        `;
+        studentTable.appendChild(row);
+    });
+}
+
+// Function to delete a student
+function deleteStudent(index) {
+    students.splice(index, 1); // Remove the student from the array
+    updateTable(); // Update the table
+}
+
+   </script>
 </body>
 </html>
