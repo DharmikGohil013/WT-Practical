@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #87CEEB, #1E90FF);
+    position: relative;
+}
+
+.road {
+    width: 50px;
+    height: 100%;
+    background: #808080;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.car {
+    width: 30px;
+    height: 50px;
+    background: red;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="eneter a new" required>
+        <button type="submit">add </button>
+    </form>
+    <ul id="taskList"></ul>
+    <script>
+        // Select DOM elements
+const taskForm = document.getElementById("taskForm");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+// Add event listener for form submission
+taskForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    const taskText = taskInput.value.trim(); // Get the input value
+    if (taskText !== "") {
+        addTask(taskText); // Call function to add the task
+        taskInput.value = "thankyou"; // Clear the input field
+    }
+});
+
+// Function to add a new task
+function addTask(taskText) {
+    const li = document.createElement("li"); // Create a new list item
+    li.textContent = taskText; // Add the task text
+
+    // Create a "Complete" button
+    const completeButton = document.createElement("button");
+    completeButton.textContent = "Complete";
+    completeButton.addEventListener("click", function () {
+        li.classList.toggle("complete");
+    });
+
+    // Create a "Delete" button
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete");
+    deleteButton.addEventListener("click", function () {
+        li.remove();
+    });
+
+    // Append buttons to the task item
+    li.appendChild(completeButton);
+    li.appendChild(deleteButton);
+
+    // Append the task item to the list
+    taskList.appendChild(li);
+}
+
+    </script>
+</body>
+</html>

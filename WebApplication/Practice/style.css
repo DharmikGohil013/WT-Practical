@@ -1,0 +1,80 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+main {
+    padding: 20px;
+}
+
+/* Project Section */
+.project-list {
+    display: flex;
+    flex-wrap: wrap; /* Ensures projects wrap on smaller screens */
+    gap: 20px;
+    justify-content: center; /* Centers the projects */
+}
+
+.project {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 calc(30% - 20px); /* Flexible layout for 3 items per row */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure projects are fully responsive */
+@media (max-width: 768px) {
+    .project {
+        flex: 1 1 calc(45% - 20px); /* Adjust to 2 items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .project {
+        flex: 1 1 100%; /* Stacks items vertically */
+    }
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

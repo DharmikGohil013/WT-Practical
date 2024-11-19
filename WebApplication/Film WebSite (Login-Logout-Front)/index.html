@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body{
+            background-image: url('LOO.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            width: auto;
+
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #4b4b4b;
+        }
+
+        #signin-container {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgb(255, 251, 0);
+            padding: 70px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            opacity: 0; /* Set initial opacity to 0 */
+            animation: fadeIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Animation for fade-in effect */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        #company-name {
+            font-size: 20px;
+            font-weight: bold;
+            
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.5s ease; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="signin-container">
+        <img id="logo" src="LOO.jpg" alt="Logo">
+        <div id="company-name">DHARMIK GOHIL FILM</div>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button  onclick="signIn()">Sign In</button>
+        <p id="error-message" style="color: red; display: none;">Incorrect username or password please make your username and password to  whatsapp sand your name and email
+
+        <button onclick="signup()">Make Username and password</button>
+        </p>
+        
+    </div>
+
+    <script>
+        // Add an event listener for keypress on the password input
+        document.getElementById("password").addEventListener("keyup", function(event) {
+            // Check if the pressed key is Enter (key code 13)
+            if (event.key === "enter") {
+                // Trigger the click event on the Sign In button
+                signIn();
+            }
+        });
+    
+        // Add your sign-in logic here
+        function signIn() {
+            const validUsername = "dharmik";
+            const validPassword = "gohil";
+    
+            // Get entered username and password
+            const enteredUsername = document.getElementById("username").value;
+            const enteredPassword = document.getElementById("password").value;
+            if (enteredUsername === validUsername && enteredPassword === validPassword) {
+                // Redirect to 'other_page.html' if credentials are correct
+                
+                window.location.href = 'loding.html';
+
+                alert("Sign in clicked!");
+            } else {
+                // Display error message if credentials are incorrect
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+    
+        function signup() {
+            window.location.href = 'https://wa.me/+919624105887';
+        }
+    </script>
+    <script>
+        function toggleMenu() {
+      const lines = document.querySelectorAll('.line');
+      const homeButton = document.getElementById('home');
+      const aboutButton = document.getElementById('about');
+
+      lines[0].classList.toggle('line1-active');
+      lines[1].classList.toggle('line2-active');
+      lines[2].classList.toggle('line3-active');
+
+      if (lines[1].classList.contains('line2-active')) {
+        homeButton.style.display = 'block';
+        aboutButton.style.display = 'block';
+      } else {
+        homeButton.style.display = 'none';
+        aboutButton.style.display = 'none';
+      }
+    }
+    </script>
+    
+   
+</body>
+</html>

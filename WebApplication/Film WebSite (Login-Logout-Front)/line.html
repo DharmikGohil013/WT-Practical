@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Lines</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
+
+    #lines-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    .line {
+      width: 30px;
+      height: 3px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    #line2 {
+      margin: 6px 0;
+    }
+
+    #home, #about {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px;
+      background-color: #333;
+      color: #fff;
+      display: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="lines-container" onclick="toggleMenu()">
+    <div class="line" id="line1"></div>
+    <div class="line" id="line2"></div>
+    <div class="line" id="line3"></div>
+  </div>
+
+  <button id="home" onclick="alert('Home button clicked')">Home</button>
+  <button id="about" onclick="alert('About button clicked')">About</button>
+
+  <script>
+    function toggleMenu() {
+      const lines = document.querySelectorAll('.line');
+      const homeButton = document.getElementById('home');
+      const aboutButton = document.getElementById('about');
+
+      lines[0].classList.toggle('line1-active');
+      lines[1].classList.toggle('line2-active');
+      lines[2].classList.toggle('line3-active');
+
+      if (lines[1].classList.contains('line2-active')) {
+        homeButton.style.display = 'block';
+        aboutButton.style.display = 'block';
+      } else {
+        homeButton.style.display = 'none';
+        aboutButton.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

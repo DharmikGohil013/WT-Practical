@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHARMIK GOHIL</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #000000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            z-index: 1;
+        }
+
+        nav button {
+            -ms-text-combine-horizontal: all;
+            margin-bottom: 10px;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: #851c1c;
+        }
+
+        main {
+            margin-top: 120px; /* Adjusted margin for the scrolling effect */
+            text-align: center;
+        }
+
+        .big-image {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .info {
+            margin: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        video {
+      width: 50%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0.5, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="LOO.jpg" alt="Logo">
+            <h1>DHARMIK GOHIL FILM</h1>
+        </div>
+    </header>
+
+    <nav>
+        <button onclick="showHome()">Home</button>
+        <button onclick="showFilms()">Films</button>
+        <button onclick="showAchievements()">New</button>
+        <button onclick="showAbout()">About</button>
+    </nav>
+
+    <main>
+        <video autoplay loop muted>
+            <source src="dharmik gohil film (1).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video><br>
+        <img class="big-image" src="dharmik gohil film.jpg" alt="Advertisement Image">
+        <div class="info">
+            <p>Welcome to our website! Explore the latest films, achievements, and learn more about us.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget augue vel justo tempus iaculis.</p>
+        </div>
+        <img class="big-image" src="DHARMIK.jpg" alt="Advertisement Image">
+        <div class="info">
+            <p>Welcome to our website! Explore the latest films, achievements, and learn more about us.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget augue vel justo tempus iaculis.</p>
+        </div>
+        <!-- Repeat content to demonstrate scrolling -->
+        <img class="big-image" src="Dharmik Gohil.jpg" alt="Advertisement Image">
+        <div class="info">
+            <p>Additional content...</p>
+        </div>
+    </main>
+
+    <script>
+        function showHome() {
+            alert('Navigate to Home');
+            window.location.href = 'next.html';
+            
+        }
+
+        function showFilms() {
+            alert('Navigate to Films');
+            window.location.href = 'film.html';
+        }
+
+        function showAchievements() {
+            alert('Navigate to Achievements');
+        }
+
+        function showAbout() {
+            alert('Navigate to About');
+        }
+    </script>
+</body>
+</html>

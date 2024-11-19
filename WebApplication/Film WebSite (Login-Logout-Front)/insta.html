@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHARMIK GOHIL FILM</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeInDown 0.5s ease-in-out;
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.5s ease-in-out;
+        }
+
+        .post img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .post:hover img {
+            transform: scale(1.1);
+        }
+
+        .post .caption {
+            padding: 10px;
+        }
+
+        .post .actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+
+        .like-btn {
+            cursor: pointer;
+            color: #ed4956;
+            transition: color 0.3s ease;
+        }
+
+        .like-btn:hover {
+            color: #ff6b81;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="LOO.jpg" alt="Instagram Logo">
+        <div>User Profile</div>
+    </header>
+
+    <main>
+        <div class="CHIT">
+            <img src="A.jpg" alt="Post Image">
+            <div class="caption">Beautiful PIC 🌅</div>
+            <div class="actions">
+                <span class="like-btn">❤️ Like</span>
+                <span>Comment</span>
+            </div>
+        </div>
+
+        <div class="CHIT">
+            <img src="A2.jpg" alt="Post Image">
+            <div class="caption">Exploring new places 🏞️ #Travel</div>
+            <div class="actions">
+                <span class="like-btn">❤️ Like</span>
+                <span>Comment</span>
+            </div>
+        </div>
+
+        <!-- More posts can be added here -->
+    </main>
+
+    <script>
+        document.querySelectorAll('.like-btn').forEach(function(likeBtn) {
+            likeBtn.addEventListener('click', function() {
+                alert('Liked!');
+            });
+        });
+    </script>
+</body>
+</html>

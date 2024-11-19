@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #welcome-text {
+      font-size: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #333;
+    }
+
+    #rembo {
+      color: #ff6347;
+      transition: color 1s;
+    }
+  </style>
+</head>
+<body>
+  <div id="welcome-text"></div>
+
+  <script>
+    const text = "Welcome to DHARMIK GOHIL FILM";
+    let index = 0;
+
+    function typeWriter() {
+      const welcomeText = document.getElementById('welcome-text');
+      if (index < text.length) {
+        welcomeText.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+      } else {
+        setTimeout(() => {
+          const rembo = document.createElement('span');
+          
+          rembo.id = 'DHARMIK GOHIL FILM';
+          document.getElementById('welcome-text').appendChild(rembo);
+
+          setTimeout(() => {
+            document.getElementById('DHARMIK GOHIL FILM').style.color = '#4CAF50';
+          }, 1000);
+
+          setTimeout(() => {
+            window.location.href = 'loging2.html'; // Replace 'newpage.html' with the desired URL
+          }, 3000);
+        }, 1000);
+      }
+    }
+
+    // Start the animation
+    typeWriter();
+    
+  </script>
+</body>
+</html>
