@@ -1,38 +1,9 @@
-/* General Body Styling */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+body.light {
+    background-color: #ffffff;
+    color: #000000;
 }
 
-/* Parallax Section Styling */
-.parallax {
-    height: 100vh; /* Full viewport height */
-    background-attachment: fixed; /* Fixed background for parallax effect */
-    background-position: center;
-    background-repeat: repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    font-size: 2em;
-}
-
-/* Specific Backgrounds for Parallax Sections */
-#section1 {
-    background-image: url('Devloper\ \(1\).jpg'); /* Replace with your image */
-}
-
-#section2 {
-    background-image: url('Devloper\ \(1\).jpg'); 
-    /* Replace with your image */
-}
-
-/* Content Section Styling */
-.content {
-    padding: 50px;
-    background: #f4f4f4;
-    text-align: center;
+body.dark {
+    background-color: #000000;
+    color: #ffffff;
 }

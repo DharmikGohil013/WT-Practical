@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Simple E-Commerce Site</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+
+#cart {
+    margin-top: 20px;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+#slider {
+    position: relative;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-image {
+    max-width: 100%;
+    height: auto;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My E-Commerce Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+        <section id="slider">
+            <div class="slider-container">
+                <img src="a.jpg" alt="Product 1" class="slider-image">
+                <img src="a.jpg" alt="Product 2" class="slider-image" style="display: none;">
+                <img src="a.jpg" alt="Product 3" class="slider-image" style="display: none;">
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Products</h2>
+            <div class="product" data-id="1">
+                <img src="images/product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$10.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2">
+                <img src="images/product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$15.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="3">
+                <img src="images/product3.jpg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </section>
+
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <button id="checkout">Checkout</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My E-Commerce Store</p>
+    </footer>
+
+    <script>
+        const cart = [];
+const cartCount = document.getElementById('cart-count');
+const cartItems = document.getElementById('cart-items');
+const checkoutButton = document.getElementById('checkout');
+
+// Event listener for adding products to the cart
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const productElement = event.target.closest('.product');
+        const productId = productElement.getAttribute('data-id');
+        const productName = productElement.querySelector('h3').innerText;
+        const productPrice = productElement.querySelector('p').innerText;
+
+        // Add product to cart
+        cart.push({ id: productId, name: productName, price: productPrice });
+        updateCart();
+    });
+});
+
+// Function to update the cart display
+function updateCart() {
+    cartCount.innerText = cart.length;
+    cartItems.innerHTML = ''; // Clear existing items
+
+    // Display each item in the cart
+    cart.forEach((item, index) => {
+        const cartItem = document.createElement('div');
+        cartItem.innerHTML = `
+            <p>${item.name} - ${item.price} <button class="remove-item" data-index="${index}">Remove</button></p>
+        `;
+        cartItems.appendChild(cartItem);
+    });
+
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const index = event.target.getAttribute('data-index');
+            cart.splice(index, 1); // Remove item from cart
+            updateCart(); // Update the cart display
+        });
+    });
+}
+
+// Event listener for checkout button
+checkoutButton.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+    } else {
+        // Simple checkout process
+        alert("Proceeding to checkout. Thank you for your purchase!");
+        cart.length = 0; // Clear the cart
+        updateCart(); // Update the cart display
+    }
+});
+    </script>
+</body>
+</html>

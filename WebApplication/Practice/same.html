@@ -3,81 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Theme Switcher</title>
+    <link rel="stylesheet" href="stylee.css">
 </head>
 <body>
-    <h1>Student Management System</h1>
-    <form id="studentForm">
-        <input type="text" id="name" placeholder="Enter Name" required>
-        <input type="number" id="age" placeholder="Enter Age" required>
-        <input type="text" id="grade" placeholder="Enter Grade" required>
-        <button type="submit">Add Student</button>
-    </form>
-    <table id="studentTable" border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Grade</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Student rows will be added dynamically here -->
-        </tbody>
-    </table>
-   <script>
-    // Array to store student data
-let students = [];
+    <button id="themeToggle">Switch Theme</button>
+    <h1>Dynamic Theme Switcher</h1>
+    <p>Click the button to switch themes.</p>
+    <script >
+        const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
 
-// Select form and table body elements
-const studentForm = document.getElementById("studentForm");
-const studentTable = document.querySelector("#studentTable tbody");
+// Load the saved theme
+const savedTheme = localStorage.getItem("theme") || "light";
+body.classList.add(savedTheme);
 
-// Add event listener for form submission
-studentForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+themeToggle.addEventListener("click", () => {
+    const currentTheme = body.classList.contains("light") ? "light" : "dark";
+    const newTheme = currentTheme === "light" ? "dark" : "light";
 
-    // Get input values
-    const name = document.getElementById("name").value.trim();
-    const age = parseInt(document.getElementById("age").value);
-    const grade = document.getElementById("grade").value.trim();
-
-    // Add student to the array
-    const newStudent = { name, age, grade };
-    students.push(newStudent);
-
-    // Update the table
-    updateTable();
-
-    // Clear the form
-    studentForm.reset();
+    body.classList.remove(currentTheme);
+    body.classList.add(newTheme);
+    localStorage.setItem("theme", newTheme);
 });
 
-// Function to update the table
-function updateTable() {
-    studentTable.innerHTML = ""; // Clear the table body
-    students.forEach((student, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${student.name}</td>
-            <td>${student.age}</td>
-            <td>${student.grade}</td>
-            <td>
-                <button onclick="deleteStudent(${index})">Delete</button>
-            </td>
-        `;
-        studentTable.appendChild(row);
-    });
-}
-
-// Function to delete a student
-function deleteStudent(index) {
-    students.splice(index, 1); // Remove the student from the array
-    updateTable(); // Update the table
-}
-
-   </script>
+    </script>
 </body>
 </html>
